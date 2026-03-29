@@ -1,4 +1,4 @@
-name: Build RasFocus Installer
+name: Build RasFocus Elite
 
 on:
   push:
@@ -21,16 +21,12 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
 
-    - name: Build Portable EXE
+    - name: Build Professional EXE
       run: |
         pyinstaller --onefile --noconsole --uac-admin --name "RasFocus_Pro_Max" focus_app.py
 
-    - name: Build Professional Installer (Setup.exe)
-      run: |
-        "C:\Program Files (x86)\Inno Setup 6\ISCC.exe" installer.iss
-
-    - name: Upload Setup File
+    - name: Upload EXE
       uses: actions/upload-artifact@v4
       with:
-        name: RasFocus-Setup-Installer
-        path: Output/RasFocus_Setup.exe
+        name: RasFocus-Elite-Executable
+        path: dist/RasFocus_Pro_Max.exe

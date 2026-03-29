@@ -2,3 +2,5 @@ customtkinter
 pillow
 pystray
 pyinstaller
+winshell
+pywin32
